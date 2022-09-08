@@ -1,5 +1,3 @@
-from re import A
-
 
 print('''
 ==================================
@@ -11,6 +9,7 @@ while opcao.upper() != "S":
     print('''
     -----------------
     Menu de navegação
+    -----------------
     C = cadastro
     V = vendas 
     R = Relatórios
@@ -21,4 +20,3 @@ while opcao.upper() != "S":
 
 
 print("Fim de programa")
-print ("oi anderson ")
