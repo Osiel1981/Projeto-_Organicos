@@ -1,4 +1,5 @@
 from re import A
+from traceback import print_tb
 produtos = {}
 vendas = []
 preco = 0
@@ -28,15 +29,30 @@ while opcao.upper() != "S":
         while len(novo_produto) <= 5:
             print("nome não pode conter menos de 5 caracteres'.")
             input("Favor inserir um nome válido")
+        produtos['produto'] = novo_produto
 
         preco_produto = float(input("Qual o preço atualizado? \nR$:"))
         while preco_produto <= 0:
             print("Valor deve ser maior que R$ 0")
             input("Favor inserir valor válido: R$")
-        produtos = novo_produto,preco_produto
+        produtos['preco'] = preco_produto
+
+
+        Fabricante = input("Qual o fabricante do produto")
+        while len(Fabricante) <= 2:
+            print("Valor inválido")
+            input("Favor inserir nome válido: ")
+        produtos['fabricante'] = Fabricante
+
+        fornecedor = input("Qual o nome do fornecedor")
+        while len(fornecedor) <= 3:
+            print("Valor inválido")
+            input("Favor inserir nome válido:")
+        produtos['fornecedor'] = fornecedor
 
         print("Produto cadastrado, :", novo_produto)
         print(produtos)
+        print(type(produtos))
     else:
         print("opção ainda não cadastrada")
 
