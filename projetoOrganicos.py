@@ -1,21 +1,58 @@
 
+from re import A
 carrinho = 0
 
 somaCarrinho = 0
 
-from re import A
 produtos = dict()
+
 Estoque = [{'maça':2.5, 'pera':3}]
+
 preco = 0
 
 
 print('''
-==================================
-Bem Vindo ao Desefio Organicos!!!
-==================================''')
+                  =====================================
+                  !!! Bem Vindo ao Desefio Organicos!!!
+                  =====================================
+                  =====================================
+                  =                                   =
+                  =             .-------.             =
+                  =            _|_O_    |_            =
+                  =           |         | |           =
+                  =           | .-------' |           =
+                  =           |_|    _____|           =
+                  =             |     O |             =
+                  =             '-------'             =
+                  =                                   =
+                  =====================================
+                  =        Primeiro Projeto           =
+                  =               do                  =
+                  =     Div Magalu : Dev - Python     =
+                  =====================================
+                  =  Desnvolvedores:                  =
+                  =                                   =
+                  =                Anderson Teixeira  =
+                  =                Eron Morais        =
+                  =                João Paulo Garcia  =
+                  =                Osiel Mesquita     =
+                  ===================================== 
+                  =                                   =
+                  = Orientação :                      =
+                  =                                   =
+                  =                  Matheus Willian  =
+                  =                                   =
+                  =====================================
+                  =                                   =
+                  ===================================== 
+
+
+
+ 
+''')
 
 opcao = "a"
-while opcao.upper() != "S": 
+while opcao.upper() != "S":
     print('''
     -----------------
     Menu de navegação
@@ -25,9 +62,11 @@ while opcao.upper() != "S":
 
     S = sair e fechar o programa
     -----------------''')
+
     opcao = input("Digite o que deseja acessar: ")
     
     if opcao.upper() == 'C':
+
         print('''
     -----------------
     Menu de Cadastro
@@ -37,6 +76,7 @@ while opcao.upper() != "S":
     V = Voltar para o menu anterior
     S = Sair do programa
     -----------------''')
+
     
         opcao = input("Digite o que deseja acessar: ")
         if not opcao.upper() in "CVRS": 
@@ -66,8 +106,6 @@ while opcao.upper() != "S":
 
         print(Estoque)
 
-       
-
 
     if opcao.upper() == "V":
         opcaoVendas = "V"
@@ -88,9 +126,10 @@ while opcao.upper() != "S":
                 maisCarrinho = "S"
 
                 while maisCarrinho.upper() == "S":
-                    produto = input("Digite o nome do produto que deseja adicionar ao carrinho: ")
+                    produto = input(
+                        "Digite o nome do produto que deseja adicionar ao carrinho: ")
                     if produto in produtos.keys():
-                    
+
                         carrinho = carrinho + produtos[produto]
 
                     else:
@@ -100,19 +139,19 @@ while opcao.upper() != "S":
                         ------------------------
                         ''')
 
-
-                    maisCarrinho = input("Deseja adicionar mais produtos ao carrinho? Digite S para sim ou N para não: ")
+                    maisCarrinho = input(
+                        "Deseja adicionar mais produtos ao carrinho? Digite S para sim ou N para não: ")
 
             if opcaoVendas.upper() == "R":
                 menosCarrinho = "S"
                 while menosCarrinho == "S":
-                    produto = input("Digite o nome do produto que deseja remover: ")
-                    
+                    produto = input(
+                        "Digite o nome do produto que deseja remover: ")
+
                     carrinho = carrinho - produtos(produto)
 
-                    menosCarrinho = input("Deseja remover mais produtos do carrinho? Digite S para sim ou N para não ")
-
-
+                    menosCarrinho = input(
+                        "Deseja remover mais produtos do carrinho? Digite S para sim ou N para não ")
 
 
 print('''
@@ -121,4 +160,3 @@ Fim de programa!
 _______________
 ''')
 print(carrinho)
-
