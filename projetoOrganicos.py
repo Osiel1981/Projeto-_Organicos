@@ -5,7 +5,9 @@ carrinho = 0
 somaCarrinho = 0
 
 produtos = dict()
-Estoque = {'maça': 2.5, 'pera': 3}
+
+Estoque = [{'maça':2.5, 'pera':3}]
+
 preco = 0
 
 
@@ -60,9 +62,11 @@ while opcao.upper() != "S":
 
     S = sair e fechar o programa
     -----------------''')
-    opcao = input("Digite o que deseja acessar: ").upper()
 
-    if opcao == 'C':
+    opcao = input("Digite o que deseja acessar: ")
+    
+    if opcao.upper() == 'C':
+
         print('''
     -----------------
     Menu de Cadastro
@@ -73,45 +77,35 @@ while opcao.upper() != "S":
     S = Sair do programa
     -----------------''')
 
-    opcao = input("Digite o que deseja acessar: ")
-    if not opcao.upper() in "CVRS":
-
-        print('''
+    
+        opcao = input("Digite o que deseja acessar: ")
+        if not opcao.upper() in "CVRS": 
+        
+            print('''
         _______________
         OPÇÃO INVALIDA
         _______________''')
+    
+        
+        if opcao.upper() == 'C':
+            
+            novo_produto = input("Qual o nome do novo produto: ")
+            while len(novo_produto) <= 2:
+                print("nome não pode conter menos de 2 caracteres'.")
+                input("Favor inserir um nome válido")
+            produtos['produto'] = novo_produto
+            
+            preco_produto = float(input("Qual o preço atualizado? \nR$:"))
+            while preco_produto <= 0:
+                print("Valor deve ser maior que R$ 0")
+                input("Favor inserir valor válido: R$")
+            produtos['preco'] = preco_produto
+            Estoque.append(produtos.copy())
+        else:
+            print("opção ainda não cadastrada")
 
-    opcao = input("Digite o que deseja acessar: ").upper()
-    if opcao == 'C':
-
-        novo_produto = input("Qual o nome do novo produto")
-        while len(novo_produto) <= 5:
-            print("nome não pode conter menos de 5 caracteres'.")
-            input("Favor inserir um nome válido")
-        produtos['produto'] = novo_produto
-
-        preco_produto = float(input("Qual o preço atualizado? \nR$:"))
-        while preco_produto <= 0:
-            print("Valor deve ser maior que R$ 0")
-            input("Favor inserir valor válido: R$")
-        produtos['preco'] = preco_produto
-
-        Fabricante = input("Qual o fabricante do produto: \n")
-        while len(Fabricante) <= 2:
-            print("Valor inválido")
-            input("Favor inserir nome válido:\n")
-        produtos['fabricante'] = Fabricante
-
-        fornecedor = input("Qual o nome do fornece:\n")
-        while len(fornecedor) <= 3:
-            print("Valor inválido")
-            input("Favor inserir nome válido:\n")
-        produtos['fornecedor'] = fornecedor
-        Estoque.append(produtos.copy())
-        print("Produto cadastrado, :", novo_produto)
         print(Estoque)
-    else:
-        print("opção ainda não cadastrada")
+
 
     if opcao.upper() == "V":
         opcaoVendas = "V"
