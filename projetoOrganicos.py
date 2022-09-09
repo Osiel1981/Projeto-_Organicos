@@ -1,6 +1,6 @@
 
 from re import A
-carrinho = 0
+carrinho = {}
 
 somaCarrinho = 0
 
@@ -65,7 +65,7 @@ while opcao.upper() != "S":
 
     opcao = input("Digite o que deseja acessar: ")
     
-    if opcao.upper() == 'C':
+    if opcao.upper() == 'C': # Menu de cadastro 
 
         print('''
     -----------------
@@ -107,9 +107,9 @@ while opcao.upper() != "S":
         print(Estoque)
 
 
-    if opcao.upper() == "V":
+    if opcao.upper() == "V": # Menu de vendas 
         opcaoVendas = "V"
-        while opcaoVendas.upper() in "VAR":
+        while opcaoVendas.upper() in "VARFC":
 
             print('''
             ---------------------------
@@ -119,18 +119,21 @@ while opcao.upper() != "S":
             opcaoVendas = input('''
             Digite A se deseja adicionar um item ao seu carrinho de compras:
             Digite R se deseja remover um item do seu carrinho de compras:
-            Digite S para voltar para o menu inicil
+            Digite F para fechar o carrinho e finalizar a compra:
+            Digite C para ver os items dentro do carrinho:
+            Digite S para voltar para o menu inicil: 
+              
             ''')
 
             if opcaoVendas.upper() == "A":
                 maisCarrinho = "S"
 
                 while maisCarrinho.upper() == "S":
-                    produto = input(
-                        "Digite o nome do produto que deseja adicionar ao carrinho: ")
+                    produto = input("Digite o nome do produto que deseja adicionar ao carrinho: ")
                     if produto in produtos.keys():
 
-                        carrinho = carrinho + produtos[produto]
+                        valor = produtos[produto]
+                        carrinho[produto] = valor
 
                     else:
                         print('''
@@ -139,19 +142,43 @@ while opcao.upper() != "S":
                         ------------------------
                         ''')
 
-                    maisCarrinho = input(
-                        "Deseja adicionar mais produtos ao carrinho? Digite S para sim ou N para não: ")
+                    maisCarrinho = input("Deseja adicionar mais produtos ao carrinho? Digite S para sim ou N para não: ")
 
             if opcaoVendas.upper() == "R":
                 menosCarrinho = "S"
                 while menosCarrinho == "S":
-                    produto = input(
-                        "Digite o nome do produto que deseja remover: ")
+                    produto = input("Digite o nome do produto que deseja remover: ")
+                    if produto in carrinho.keys():
+                        carrinho.pop(produto)
+  
+                    else:
+                        print('''
+                        -------------------------------------
+                        Esse produto não esta no seu carrinho
+                        -------------------------------------
+                        ''')
+                    menosCarrinho = input("Deseja remover mais produtos do carrinho? Digite S para sim ou N para não ")
 
-                    carrinho = carrinho - produtos[produto]
+            if opcaoVendas.upper() == "F":
+                for nomes in carrinho:
+                    valores = carrinho[nomes]
+                    somaCarrinho = somaCarrinho + valores
+                print(f'''
+                ++++++++++++++++++++++++++++++++++++++
+                          Intens no Carrinho
+                {carrinho}
+                ++++++++++++++++++++++++++++++++++++++
+                Valor total a pagar = R${somaCarrinho}
+                ++++++++++++++++++++++++++++++++++++++''')
 
-                    menosCarrinho = input(
-                        "Deseja remover mais produtos do carrinho? Digite S para sim ou N para não ")
+            if opcaoVendas.upper() == "C":
+                
+                print(f'''
+                +++++++++++++++++++++
+                Itens no Carrinho
+                +++++++++++++++++++++
+                {carrinho}
+                +++++++++++++++++++++''')
 
 
 print('''
@@ -159,4 +186,4 @@ _______________
 Fim de programa!
 _______________
 ''')
-print(carrinho)
+
