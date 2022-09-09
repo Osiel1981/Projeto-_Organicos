@@ -1,7 +1,7 @@
 from re import A
 from traceback import print_tb
-produtos = {}
-vendas = []
+produtos = dict()
+Estoque = []
 preco = 0
 
 
@@ -38,21 +38,21 @@ while opcao.upper() != "S":
         produtos['preco'] = preco_produto
 
 
-        Fabricante = input("Qual o fabricante do produto")
+        Fabricante = input("Qual o fabricante do produto: \n")
         while len(Fabricante) <= 2:
             print("Valor inválido")
-            input("Favor inserir nome válido: ")
+            input("Favor inserir nome válido:\n")
         produtos['fabricante'] = Fabricante
 
-        fornecedor = input("Qual o nome do fornecedor")
+        fornecedor = input("Qual o nome do fornece:\n")
         while len(fornecedor) <= 3:
             print("Valor inválido")
-            input("Favor inserir nome válido:")
+            input("Favor inserir nome válido:\n")
         produtos['fornecedor'] = fornecedor
-
+        Estoque.append(produtos.copy())
         print("Produto cadastrado, :", novo_produto)
-        print(produtos)
-        print(type(produtos))
+        print(Estoque)
+        print(type(Estoque))
     else:
         print("opção ainda não cadastrada")
 
