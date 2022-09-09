@@ -3,8 +3,6 @@ produtos = dict()
 Estoque = []
 preco = 0
 
-
-
 print('''
 ==================================
 Bem Vindo ao Desefio Organicos!!!
@@ -20,9 +18,19 @@ while opcao.upper() != "S":
     R = Relatórios
     S = sair e feixar o programa
     -----------------''')
-
     opcao = input("Digite o que deseja acessar: ").upper()
-
+    
+    if opcao == 'C':
+        print('''
+    -----------------
+    Menu de Cadastro
+    C = Cadastramento de produtos
+    L = Listar produtos cadastrados 
+    D = Deleção de produtos
+    V = Voltar para o menu anterior
+    S = Sair do programa
+    -----------------''')
+    opcao = input("Digite o que deseja acessar: ").upper()
     if opcao == 'C':
         novo_produto = input("Qual o nome do novo produto")
         while len(novo_produto) <= 5:
@@ -47,7 +55,7 @@ while opcao.upper() != "S":
         while len(fornecedor) <= 3:
             print("Valor inválido")
             input("Favor inserir nome válido:\n")
-        produtos['fornecedor'] = fornecedor
+        produtos['fornecedor'] = fornecedor    
         Estoque.append(produtos.copy())
         print("Produto cadastrado, :", novo_produto)
         print(Estoque)
