@@ -89,22 +89,22 @@ while opcao.upper() != "S":
         
         if opcao.upper() == 'C':
             
-            novo_produto = input("Qual o nome do novo produto: ")
-            while len(novo_produto) <= 2:
+            nome = input("Qual o nome do novo produto: ")
+            while len(nome) <= 2:
                 print("nome não pode conter menos de 2 caracteres'.")
-                input("Favor inserir um nome válido")
-            produto['produto'] = novo_produto
+                nome = input("Favor inserir um nome válido")
+            #produto['produto'] = novo_produto
             
-            preco_produto = float(input("Qual o preço atualizado? \nR$:"))
-            while preco_produto <= 0:
+            valor = float(input("Qual o preço atualizado? \nR$:"))
+            while valor <= 0:
                 print("Valor deve ser maior que R$ 0")
-                input("Favor inserir valor válido: R$")
-            produto['preco'] = preco_produto
+                valor = input("Favor inserir valor válido: R$")
+            produtos[nome]=valor
             Estoque.append(produto.copy())
         else:
             print("opção ainda não cadastrada")
 
-        print(Estoque)
+        print(produtos)
 
 
     if opcao.upper() == "V":
