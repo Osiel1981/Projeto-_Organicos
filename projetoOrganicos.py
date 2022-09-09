@@ -4,9 +4,9 @@ carrinho = 0
 
 somaCarrinho = 0
 
-produtos = dict()
+produtos = {'maça':2.5, 'pera':3}
 
-Estoque = [{'maça':2.5, 'pera':3}]
+Estoque = []
 
 preco = 0
 
@@ -148,7 +148,7 @@ while opcao.upper() != "S":
                     produto = input(
                         "Digite o nome do produto que deseja remover: ")
 
-                    carrinho = carrinho - produtos(produto)
+                    carrinho = carrinho - produtos[produto]
 
                     menosCarrinho = input(
                         "Deseja remover mais produtos do carrinho? Digite S para sim ou N para não ")
