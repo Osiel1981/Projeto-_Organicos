@@ -1,7 +1,7 @@
 
 from re import A
 carrinho = 0
-
+produto = dict()
 somaCarrinho = 0
 
 produtos = {'maça':2.5, 'pera':3}
@@ -93,14 +93,14 @@ while opcao.upper() != "S":
             while len(novo_produto) <= 2:
                 print("nome não pode conter menos de 2 caracteres'.")
                 input("Favor inserir um nome válido")
-            produtos['produto'] = novo_produto
+            produto['produto'] = novo_produto
             
             preco_produto = float(input("Qual o preço atualizado? \nR$:"))
             while preco_produto <= 0:
                 print("Valor deve ser maior que R$ 0")
                 input("Favor inserir valor válido: R$")
-            produtos['preco'] = preco_produto
-            Estoque.append(produtos.copy())
+            produto['preco'] = preco_produto
+            Estoque.append(produto.copy())
         else:
             print("opção ainda não cadastrada")
 
