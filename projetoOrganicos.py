@@ -1,5 +1,4 @@
 from re import A
-from traceback import print_tb
 produtos = dict()
 Estoque = []
 preco = 0
@@ -52,13 +51,8 @@ while opcao.upper() != "S":
         Estoque.append(produtos.copy())
         print("Produto cadastrado, :", novo_produto)
         print(Estoque)
-        print(type(Estoque))
     else:
         print("opção ainda não cadastrada")
-
-
-    
-
 
 print("Fim de programa")
 print ("oi anderson ")
