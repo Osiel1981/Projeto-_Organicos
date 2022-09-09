@@ -5,7 +5,7 @@ somaCarrinho = 0
 
 from re import A
 produtos = dict()
-Estoque = ['maça':2.5, 'pera':3]
+Estoque = {'maça':2.5, 'pera':3}
 preco = 0
 
 
@@ -56,7 +56,7 @@ while opcao.upper() != "S":
             input("Favor inserir um nome válido")
         produtos['produto'] = novo_produto
         
-         preco_produto = float(input("Qual o preço atualizado? \nR$:"))
+        preco_produto = float(input("Qual o preço atualizado? \nR$:"))
         while preco_produto <= 0:
             print("Valor deve ser maior que R$ 0")
             input("Favor inserir valor válido: R$")
