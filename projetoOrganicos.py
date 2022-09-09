@@ -54,5 +54,4 @@ while opcao.upper() != "S":
     else:
         print("opção ainda não cadastrada")
 
-print("Fim de programa")
-print ("oi anderson ")
+print("Fim de program")
