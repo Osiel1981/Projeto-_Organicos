@@ -36,14 +36,14 @@ print(' ' * 30)
 opcao = "a"
 while opcao.upper() != "S":
     print('''
-    -----------------
+    -----------------------
     Menu de navegação
     C = cadastro
     V = vendas 
     R = Relatórios
 
-    S = sair e fechar o programa
-    -----------------''')
+    S = Encerrar o programa
+    -----------------------''')
 
     opcao = input("Digite o que deseja acessar: ").upper()
     
