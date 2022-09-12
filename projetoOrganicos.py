@@ -59,7 +59,6 @@ while opcao.upper() != "S":
     S = Sair do programa
     -----------------''')
 
-    
             opcaocadastro = input("Digite o que deseja acessar: ").upper()
             if opcaocadastro == 'P':
                 while opcaocadastro == "P":   
@@ -93,9 +92,12 @@ while opcao.upper() != "S":
                     produto = input("Digite o produto que deseja excluir!").lower()
                     if produto in produtos.keys():
                         produtos.pop(produto)
-
                     else:
-                        print("Produto não existe no estoque")
+                        print('''
+                            --------------------------------------
+                                Produto indisponível no estoque
+                            --------------------------------------
+                            ''')
                     menosproduto = input("Deseja remover mais produtos do carrinho? Digite S para Sim ou N para Não ").upper()
 
             if opcaocadastro == 'V':
