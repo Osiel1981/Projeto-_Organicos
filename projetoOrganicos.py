@@ -64,14 +64,15 @@ while opcao.upper() != "S":
     S = sair e fechar o programa
     -----------------''')
 
-    opcao = input("Digite o que deseja acessar: ")
+    opcao = input("Digite o que deseja acessar: ").upper()
     
-    if opcao.upper() == 'C': # Menu de cadastro 
-
-        print('''
+    if opcao.upper() == 'C': # Menu de cadastro
+        opcaocadastro = 'C'
+        while opcaocadastro.upper() in "CLDVS":
+            print('''
     -----------------
     Menu de Cadastro
-    C = Cadastramento de produtos
+    P = Produtos a cadastrar
     L = Listar produtos cadastrados 
     D = Deleção de produtos
     V = Voltar para o menu anterior
@@ -79,35 +80,35 @@ while opcao.upper() != "S":
     -----------------''')
 
     
-        opcao = input("Digite o que deseja acessar: ")
-        if not opcao.upper() in "CVRS": 
-        
-            print('''
-        _______________
-        OPÇÃO INVALIDA
-        _______________''')
-    
-        
-        if opcao.upper() == 'C':
-            
-            nome = input("Qual o nome do novo produto: ")
-            while len(nome) <= 2:
-                print("nome não pode conter menos de 2 caracteres'.")
-                nome = input("Favor inserir um nome válido")
-            #produto['produto'] = novo_produto
-            
-            valor = float(input("Qual o preço atualizado? \nR$:"))
-            while valor <= 0:
-                print("Valor deve ser maior que R$ 0")
-                valor = input("Favor inserir valor válido: R$")
-            produtos[nome]=valor
-            Estoque.append(produto.copy())
-        else:
-            print("opção ainda não cadastrada")
+            opcaocadastro = input("Digite o que deseja acessar: ").upper()
+            if opcaocadastro == 'P':
+                while opcaocadastro == "P":   
+                    nome = input("Qual o nome do novo produto: ").upper()
+                    while len(nome) <= 2:
+                        print("nome não pode conter menos de 2 caracteres'.")
+                        nome = input("Favor inserir um nome válido").upper()
+                    #produto['produto'] = novo_produto
+                    
+                    valor = float(input("Qual o preço atualizado? \nR$:"))
+                    while valor <= 0:
+                        print("Valor deve ser maior que R$ 0")
+                        valor = input("Favor inserir valor válido: R$")
+                    produtos[nome]=valor
 
-        print(produtos)
-
-
+                    opcaocadastro = input("Deseja cadastrar novo produto? S - Sim e N - não! \n").upper()
+                    if opcaocadastro == 'S':
+                        opcaocadastro = 'P'
+                    if opcaocadastro == 'N':
+                        opcaocadastro = 'C'
+            if opcaocadastro == 'L':
+                print(produtos.items())
+            if opcaocadastro == 'D':
+                print("Opção em construção")
+            if opcaocadastro == 'V':
+                print("Opção em construção")
+            if opcaocadastro == 'S':
+                print("Opção em construção")         
+                
     if opcao.upper() == "V": # Menu de vendas 
         opcaoVendas = "V"
         while opcaoVendas.upper() in "VARFC":
