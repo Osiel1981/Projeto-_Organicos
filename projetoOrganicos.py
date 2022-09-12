@@ -47,7 +47,7 @@ while opcao.upper() != "S":
     
     if opcao.upper() == 'C': # Menu de cadastro
         opcaocadastro = 'C'
-        while opcaocadastro.upper() in "CLDVS":
+        while opcaocadastro.upper() in "CLDS":
             print('''
     -----------------
     Menu de Cadastro
@@ -81,6 +81,8 @@ while opcao.upper() != "S":
                         opcaocadastro = 'V'
                     if opcaocadastro == 'Q':
                         opcao = 'Q'
+                    if opcaocadastro == 'V':
+                        opcao = 'Q'
                     
             if opcaocadastro == 'L':
                 print(produtos.items())
@@ -95,12 +97,9 @@ while opcao.upper() != "S":
                         print("Produto não existe no estoque")
                     menosproduto = input("Deseja remover mais produtos do carrinho? Digite S para sim ou N para não ").upper()
 
-                print("Opção em construção")
-            if opcaocadastro == 'V':
-                print("Opção em construção")
             if opcaocadastro == 'S':
-                print("Opção em construção")         
-                
+                opcao='S'         
+                        
     if opcao.upper() == "V": # Menu de vendas 
         opcaoVendas = "V"
         while opcaoVendas.upper() in "VARFC":
