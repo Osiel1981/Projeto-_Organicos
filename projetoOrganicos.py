@@ -62,10 +62,10 @@ while opcao.upper() != "S":
             opcaocadastro = input("Digite o que deseja acessar: ").upper()
             if opcaocadastro == 'P':
                 while opcaocadastro == "P":   
-                    nome = input("Qual o nome do novo produto: ").upper()
+                    nome = input("Qual o nome do novo produto: ").lower()
                     while len(nome) <= 2:
                         print("nome não pode conter menos de 2 caracteres'.")
-                        nome = input("Favor inserir um nome válido").upper()
+                        nome = input("Favor inserir um nome válido").lower()
                     #produto['produto'] = novo_produto
                     
                     valor = float(input("Qual o preço atualizado? \nR$:"))
@@ -74,14 +74,27 @@ while opcao.upper() != "S":
                         valor = input("Favor inserir valor válido: R$")
                     produtos[nome]=valor
 
-                    opcaocadastro = input("Deseja cadastrar novo produto? S - Sim e N - não! \n").upper()
+                    opcaocadastro = input("Deseja cadastrar novo produto? \nS - Sim *** N - Menu anterior *** Q - Menu principal \n").upper()
                     if opcaocadastro == 'S':
                         opcaocadastro = 'P'
                     if opcaocadastro == 'N':
-                        opcaocadastro = 'C'
+                        opcaocadastro = 'V'
+                    if opcaocadastro == 'Q':
+                        opcao = 'Q'
+                    
             if opcaocadastro == 'L':
                 print(produtos.items())
             if opcaocadastro == 'D':
+                menosproduto = 'S'
+                while menosproduto == 'S':
+                    produto = input("Digite o produto que deseja excluir!").lower()
+                    if produto in produtos.keys():
+                        produtos.pop(produto)
+
+                    else:
+                        print("Produto não existe no estoque")
+                    menosproduto = input("Deseja remover mais produtos do carrinho? Digite S para sim ou N para não ").upper()
+
                 print("Opção em construção")
             if opcaocadastro == 'V':
                 print("Opção em construção")
@@ -115,6 +128,7 @@ while opcao.upper() != "S":
 
                         valor = produtos[produto]
                         carrinho[produto] = valor
+
 
                     else:
                         print('''
