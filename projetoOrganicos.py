@@ -91,7 +91,7 @@ while opcao.upper() != "S":
                     
             if opcaocadastro == 'L':
                 for items in produtos:
-                    print(items, produtos[items])
+                    print(f'{items} {str(produtos[items]):>20s}')
             if opcaocadastro == 'D':
                 menosproduto = 'S'
                 while menosproduto == 'S':
