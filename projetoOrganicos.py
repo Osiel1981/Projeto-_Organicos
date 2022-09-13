@@ -1,9 +1,4 @@
-from optparse import Values
-from os import sep
-from re import A
-from tkinter import END
-from typing import ItemsView
-import pprint
+
 
 carrinho = {}
 
@@ -11,7 +6,7 @@ somaCarrinho = 0
 
 produtos = {'maça':2.5, 'pera':3}
 
-Estoque = []
+vendidos = {}
 
 preco = 0
 
@@ -175,6 +170,9 @@ while opcao.upper() != "S":
                 ++++++++++++++++++++++++++++++++++++++
                 Valor total a pagar = R${somaCarrinho}
                 ++++++++++++++++++++++++++++++++++++++''')
+                vendidos.update(carrinho)
+                carrinho.clear()
+                somaCarrinho = 0
 
             if opcaoVendas.upper() == "C":
                 
