@@ -1,9 +1,4 @@
-from optparse import Values
-from os import sep
-from re import A
-from tkinter import END
-from typing import ItemsView
-import pprint
+
 
 carrinho = {}
 
