@@ -1,5 +1,8 @@
 
 
+from tkinter import CENTER
+
+
 carrinho = {}
 
 somaCarrinho = 0
@@ -24,7 +27,7 @@ print('''
           |     O |           
           '-------' ''')
 print(''' ''')
-print('=' * 30),print(' ' * 30),print ('''Desnvolvedores:             
+print('=' * 30),print(' ' * 30),print ('''Desenvolvedores:             
                                                      
             Anderson Teixeira  
             Eron Morais        
@@ -90,7 +93,7 @@ while opcao.upper() != "S":
             if opcaocadastro == 'D':
                 menosproduto = 'S'
                 while menosproduto == 'S':
-                    produto = input("Digite o produto que deseja excluir!").lower()
+                    produto = input("Digite o produto que deseja excluir: ").lower()
                     if produto in produtos.keys():
                         produtos.pop(produto)
                     else:
@@ -111,16 +114,16 @@ while opcao.upper() != "S":
         while opcaoVendas.upper() in "VARFC":
 
             print('''
-            ---------------------------
+            -----------------------------
              Bem Vindo ao Menu de Vendas
-            ---------------------------
+            -----------------------------
              ''')
             opcaoVendas = input('''
             Digite A se deseja adicionar um item ao seu carrinho de compras:
             Digite R se deseja remover um item do seu carrinho de compras:
             Digite F para fechar o carrinho e finalizar a compra:
             Digite C para ver os items dentro do carrinho:
-            Digite S para voltar para o menu inicil: 
+            Digite S para voltar para o menu inicial: 
               
             ''')
 
@@ -165,7 +168,7 @@ while opcao.upper() != "S":
                     somaCarrinho = somaCarrinho + valores
                 print(f'''
                 ++++++++++++++++++++++++++++++++++++++
-                          Intens no Carrinho
+                          Itens no Carrinho
                 {carrinho}
                 ++++++++++++++++++++++++++++++++++++++
                 Valor total a pagar = R${somaCarrinho}
@@ -178,14 +181,14 @@ while opcao.upper() != "S":
                 
                 print(f'''
                 +++++++++++++++++++++
-                Itens no Carrinho
+                  Itens no Carrinho
                 +++++++++++++++++++++
                 {carrinho}
                 +++++++++++++++++++++''')
 
 
 print('''
-_______________
+________________
 Fim de programa!
-_______________
+________________
 ''')
