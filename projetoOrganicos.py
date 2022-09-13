@@ -1,5 +1,8 @@
 
 # Aqui estão as variáveis do programa
+from turtle import clear
+
+
 carrinho = {}
 somaCarrinho = 0
 produtos = {'maça':2.5, 'pera':3}
@@ -39,7 +42,7 @@ while opcao.upper() != "S":
     S = Encerrar o programa
     -----------------------''')
 
-    opcao = input("Digite o que deseja acessar: ").upper()
+    opcao = input("Digite o que deseja acessar: \n").upper()
     
     if opcao.upper() == 'C': # Menu de cadastro
         opcaocadastro = 'C'
@@ -55,19 +58,18 @@ while opcao.upper() != "S":
     S = Sair do programa
     -----------------''')
 
-            opcaocadastro = input("Digite o que deseja acessar: ").upper()
+            opcaocadastro = input("Digite o que deseja acessar: \n").upper()
             if opcaocadastro == 'P':
                 while opcaocadastro == "P":   
-                    nome = input("Qual o nome do novo produto: ").lower()
+                    nome = input("Qual o nome do novo produto: \n").lower()
                     while len(nome) <= 2:
                         print("Nome não pode conter menos de 2 caracteres'.")
-                        nome = input("Favor inserir um nome válido").lower()
-                    #produto['produto'] = novo_produto
+                        nome = input("Favor inserir um nome válido:\n").lower()
                     
-                    valor = float(input("Qual o preço atualizado? \nR$:"))
+                    valor = float(input("Qual o preço atualizado? \nR$: \n"))
                     while valor <= 0:
                         print("Valor deve ser maior que R$ 0")
-                        valor = input("Favor inserir valor válido: R$")
+                        valor = input("Favor inserir valor válido: \nR$")
                     produtos[nome]=valor
 
                     opcaocadastro = input("Deseja cadastrar novo produto? \nS - Sim *** N - Menu anterior *** Q - Menu principal \n").upper()
@@ -75,18 +77,16 @@ while opcao.upper() != "S":
                         opcaocadastro = 'P'
                     if opcaocadastro == 'N':
                         opcaocadastro = 'C'
-                    if opcaocadastro == 'Q':
-                        opcao = 'Q'
                     if opcaocadastro == 'V':
                         opcao = 'Q'
                     
             if opcaocadastro == 'L':
                 for items in produtos:
-                    print(f'{items} {str(produtos[items]):>20s}')
+                    print(f'{items:<20s} {str(produtos[items]):>} ')
             if opcaocadastro == 'D':
                 menosproduto = 'S'
                 while menosproduto == 'S':
-                    produto = input("Digite o produto que deseja excluir!").lower()
+                    produto = input("Digite o produto que deseja excluir!\n").lower()
                     if produto in produtos.keys():
                         produtos.pop(produto)
                     else:
@@ -95,7 +95,7 @@ while opcao.upper() != "S":
                                 Produto indisponível no estoque
                             --------------------------------------
                             ''')
-                    menosproduto = input("Deseja remover mais produtos do carrinho? Digite S para Sim ou N para Não ").upper()
+                    menosproduto = input("Deseja remover mais produtos do carrinho? Digite S para Sim ou N para Não \n").upper()
 
             if opcaocadastro == 'V':
                         opcao = 'Q'
@@ -116,7 +116,7 @@ while opcao.upper() != "S":
             Digite R se deseja remover um item do seu carrinho de compras:
             Digite F para fechar o carrinho e finalizar a compra:
             Digite C para ver os items dentro do carrinho:
-            Digite S para voltar para o menu inicil: 
+            Digite S para voltar para o menu inicial: 
               
             ''')
 
