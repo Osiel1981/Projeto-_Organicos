@@ -1,4 +1,9 @@
+from optparse import Values
+from os import sep
 from re import A
+from tkinter import END
+from typing import ItemsView
+import pprint
 
 carrinho = {}
 
@@ -85,7 +90,8 @@ while opcao.upper() != "S":
                         opcao = 'Q'
                     
             if opcaocadastro == 'L':
-                print(produtos.items())
+                for items in produtos:
+                    print(items, produtos[items])
             if opcaocadastro == 'D':
                 menosproduto = 'S'
                 while menosproduto == 'S':
