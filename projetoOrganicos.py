@@ -178,6 +178,23 @@ while opcao.upper() != "S":
                 +++++++++++++++++++++
                 {carrinho}
                 +++++++++++++++++++++''')
+    if opcao.upper() == 'R': # Menu de Relatorio
+        opcaorelatorio = 'R'
+
+        while opcaorelatorio.upper() in "CVR":
+            print('''
+    -----------------
+    Menu de Relatorio
+    E = Exibir Relatorio
+    V = Voltar para o menu anterior
+    S = Sair do programa
+    -----------------''')
+
+            opcaorelatorio = input("Digite o que deseja acessar: ").upper()
+            if opcaorelatorio == 'E':
+                    for items in produtos:
+                        print(' ' * 1),
+                        print(f'|{items:<10s}|{str(produtos[items]):>10s}|')
 
 print('''
 _______________
