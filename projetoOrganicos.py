@@ -1,7 +1,24 @@
 
 # Aqui estão as variáveis do programa
 from turtle import clear
+menunavegacao = '''
+    -----------------------
+    Menu de navegação
+    C = cadastro
+    V = vendas 
+    R = Relatórios
+    S = Encerrar o programa
+    -----------------------'''
 
+menucadastro = '''
+    -----------------
+Menu de Cadastro
+P = Produtos a cadastrar
+L = Listar produtos cadastrados 
+D = Deleção de produtos
+V = Voltar para o menu anterior
+S = Sair do programa
+    -----------------'''
 
 carrinho = {}
 somaCarrinho = 0
@@ -33,14 +50,7 @@ print(' ' * 30)
 
 opcao = "a"
 while opcao.upper() != "S":
-    print('''
-    -----------------------
-    Menu de navegação
-    C = cadastro
-    V = vendas 
-    R = Relatórios
-    S = Encerrar o programa
-    -----------------------''')
+    print(menunavegacao)
 
     opcao = input("Digite o que deseja acessar: \n").upper()
     
@@ -48,15 +58,7 @@ while opcao.upper() != "S":
         opcaocadastro = 'C'
 
         while opcaocadastro.upper() in "CLD":
-            print('''
-    -----------------
-    Menu de Cadastro
-    P = Produtos a cadastrar
-    L = Listar produtos cadastrados 
-    D = Deleção de produtos
-    V = Voltar para o menu anterior
-    S = Sair do programa
-    -----------------''')
+            print(menucadastro)
 
             opcaocadastro = input("Digite o que deseja acessar: \n").upper()
             if opcaocadastro == 'P':
