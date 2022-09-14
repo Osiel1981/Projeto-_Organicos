@@ -2,13 +2,13 @@
 # Aqui estão as variáveis do programa
 from turtle import clear
 menunavegacao = '''
-    -----------------------
-    Menu de navegação
-    C = cadastro
-    V = vendas 
-    R = Relatórios
-    S = Encerrar o programa
-    -----------------------'''
+-----------------------
+Menu de navegação
+C = cadastro
+V = vendas 
+R = Relatórios
+S = Encerrar o programa
+-----------------------'''
 
 menucadastro = '''
     -----------------
@@ -20,16 +20,6 @@ V = Voltar para o menu anterior
 S = Sair do programa
     -----------------'''
 
-menu_cadastro = '''
------------------
-Menu de Cadastro
-P = Produtos a cadastrar
-L = Listar produtos cadastrados 
-D = Deleção de produtos
-V = Voltar para o menu anterior
-S = Sair do programa
------------------'''
-
 menu_relatorio = '''
 -----------------
 Menu de Relatorio
@@ -37,6 +27,7 @@ E = Exibir Relatorio
 V = Voltar para o menu anterior
 S = Sair do programa
 -----------------'''
+
 carrinho = {}
 somaCarrinho = 0
 produtos = {'maça':2.5, 'pera':3}
