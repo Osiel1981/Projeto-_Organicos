@@ -20,6 +20,18 @@ V = Voltar para o menu anterior
 S = Sair do programa
     -----------------'''
 
+menu_vendas = '''
+---------------------------
+       Menu de Vendas
+---------------------------
+            
+ A = Adicionar um item ao seu carrinho de compras:
+ R = Remover um item do seu carrinho de compras:
+ F = Fechar o carrinho e finalizar a compra:
+ C = Ver os items dentro do carrinho:
+ V = Voltar para o menu inicial: 
+'''
+
 menu_relatorio = '''
 -----------------
 Menu de Relatorio
@@ -27,7 +39,8 @@ E = Exibir Relatorio
 V = Voltar para o menu anterior
 S = Sair do programa
 -----------------'''
-
+faturamento = 0
+numero_de_vendas = 0
 carrinho = {}
 somaCarrinho = 0
 produtos = {'maça':2.5, 'pera':3}
@@ -113,38 +126,32 @@ while opcao.upper() != "S":
                 opcao = 'S'
 
     if opcao.upper() == "V": # Menu de vendas 
-        opcaoVendas = "V"
-        while opcaoVendas.upper() in "VARFC":
+        opcaoVendas = "A"
+        while opcaoVendas.upper() in "ARFC":
 
-            print('''
-            ---------------------------
-             Bem Vindo ao Menu de Vendas
-            ---------------------------
-             ''')
-            opcaoVendas = input('''
-            Digite A se deseja adicionar um item ao seu carrinho de compras:
-            Digite R se deseja remover um item do seu carrinho de compras:
-            Digite F para fechar o carrinho e finalizar a compra:
-            Digite C para ver os items dentro do carrinho:
-            Digite S para voltar para o menu inicial: 
-              
-            ''')
+            print(menu_vendas)
+            opcaoVendas = input("Digite o que deseja acessar: \n")
 
             if opcaoVendas.upper() == "A":
                 maisCarrinho = "S"
 
                 while maisCarrinho.upper() == "S":
                     produto = input("Digite o nome do produto que deseja adicionar ao carrinho: ")
-                    if produto in produtos.keys():
 
-                        valor = produtos[produto]
-                        carrinho[produto] = valor
+                    if produto in carrinho.keys():
+                            valor = carrinho[produto] + produtos[produto]
+                            carrinho[produto] = valor
+
+                    elif produto in produtos.keys():
+
+                            valor = produtos[produto]
+                            carrinho[produto] = valor
 
 
                     else:
                         print('''
                         ------------------------
-                        Esse produto não existe!
+                        Esse produto não cadastrado!
                         ------------------------
                         ''')
 
@@ -176,9 +183,11 @@ while opcao.upper() != "S":
                 ++++++++++++++++++++++++++++++++++++++
                 Valor total a pagar = R${somaCarrinho}
                 ++++++++++++++++++++++++++++++++++++++''')
+                faturamento = faturamento + somaCarrinho
                 vendidos.update(carrinho)
                 carrinho.clear()
                 somaCarrinho = 0
+                numero_de_vendas = numero_de_vendas + 1
 
             if opcaoVendas.upper() == "C":
                 
@@ -198,7 +207,11 @@ while opcao.upper() != "S":
             if opcaorelatorio == 'E':
                     for items in vendidos:
                         print(' ' * 1),
-                        print(f'|{items:<10s}|{str(vendidos[items]):>10s}|')
+                        print(f'|{items:<10s}'),
+                        print(' ' * 1),
+                    print(f'O faturamento do dia de hoje foi R${faturamento}')
+                    print(f'Hoje foram feitas {numero_de_vendas} vendas')
+                    print(f'O ticket medio do dia de hoje foi {faturamento/numero_de_vendas}')
 
 print('''
 _______________
