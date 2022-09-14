@@ -136,7 +136,7 @@ while opcao.upper() != "S":
                 maisCarrinho = "S"
 
                 while maisCarrinho.upper() == "S":
-                    produto = input("Digite o nome do produto que deseja adicionar ao carrinho: ")
+                    produto = input("Digite o produto a ser adicionado ao carrinho: ")
 
                     if produto in carrinho.keys():
                             valor = carrinho[produto] + produtos[produto]
@@ -179,7 +179,7 @@ while opcao.upper() != "S":
                 print(f'''
                 ++++++++++++++++++++++++++++++++++++++
                           Intens no Carrinho
-                {carrinho}
+                             {carrinho}
                 ++++++++++++++++++++++++++++++++++++++
                 Valor total a pagar = R${somaCarrinho}
                 ++++++++++++++++++++++++++++++++++++++''')
@@ -193,7 +193,7 @@ while opcao.upper() != "S":
                 
                 print(f'''
                 +++++++++++++++++++++
-                Itens no Carrinho
+                     Seu Carrinho
                 +++++++++++++++++++++
                 {carrinho}
                 +++++++++++++++++++++''')
@@ -207,11 +207,13 @@ while opcao.upper() != "S":
             if opcaorelatorio == 'E':
                     for items in vendidos:
                         print(' ' * 1),
+                        print(f'Itens Vendidos'),
+                        print(' ' * 1),
                         print(f'|{items:<10s}'),
                         print(' ' * 1),
-                    print(f'O faturamento do dia de hoje foi R${faturamento}')
-                    print(f'Hoje foram feitas {numero_de_vendas} vendas')
-                    print(f'O ticket medio do dia de hoje foi {faturamento/numero_de_vendas}')
+                    print(f'Hoje foram feitas {numero_de_vendas} vendas'),
+                    print(f'O faturamento Diario foi R$ : {faturamento}'),                    
+                    print(f'O ticket medio do dia de hoje foi : {faturamento/numero_de_vendas}'),
 
 print('''
 _______________
