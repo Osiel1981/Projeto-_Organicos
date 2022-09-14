@@ -2,7 +2,13 @@
 # Aqui estão as variáveis do programa
 from turtle import clear
 
-
+menu_relatorio = '''
+-----------------
+Menu de Relatorio
+E = Exibir Relatorio
+V = Voltar para o menu anterior
+S = Sair do programa
+-----------------'''
 carrinho = {}
 somaCarrinho = 0
 produtos = {'maça':2.5, 'pera':3}
@@ -182,19 +188,13 @@ while opcao.upper() != "S":
         opcaorelatorio = 'R'
 
         while opcaorelatorio.upper() in "CVR":
-            print('''
-    -----------------
-    Menu de Relatorio
-    E = Exibir Relatorio
-    V = Voltar para o menu anterior
-    S = Sair do programa
-    -----------------''')
+            print(menu_relatorio)
 
             opcaorelatorio = input("Digite o que deseja acessar: ").upper()
             if opcaorelatorio == 'E':
-                    for items in produtos:
+                    for items in vendidos:
                         print(' ' * 1),
-                        print(f'|{items:<10s}|{str(produtos[items]):>10s}|')
+                        print(f'|{items:<10s}|{str(vendidos[items]):>10s}|')
 
 print('''
 _______________
