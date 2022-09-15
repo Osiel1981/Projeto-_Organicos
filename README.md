@@ -21,8 +21,8 @@ Menu de Relatórios<br>
 Extrato de produtos vendidos<br>
 
 
-Pessoas que participam do Projeto.<br>
+<h4>Pessoas que participam do Projeto.<br>
 Anderson anderson.nascimento@luizalabs.com<br>
 Eron Cruz eron.cruz@luizalabs.com<br>
 Osiel Mesquita osiel.oliveira@luizalabs.com <br>
-João Garcia - joao.garcia@luizalabs.com<br>
+João Garcia - joao.garcia@luizalabs.com</h4><br>
