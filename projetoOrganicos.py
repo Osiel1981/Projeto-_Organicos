@@ -18,7 +18,7 @@ menucadastro = '''
 C = Produtos a cadastrar
 L = Listar produtos cadastrados 
 D = Deleção de produtos
-V = Voltar para o menu anterior
+V = Voltar para o menu principal
 S = Sair do programa
 -------------------------------'''
 
@@ -215,8 +215,8 @@ while opcao.upper() != "S":
                         print(f'|{items:<10s}'),
                         print(' ' * 1),
                     print(f'Hoje foram feitas {numero_de_vendas} vendas'),
-                    print(f'O faturamento Diario foi R$ : {faturamento}'),                    
-                    print(f'O ticket medio do dia de hoje foi : {faturamento/numero_de_vendas}'),
+                    print(f'O faturamento Diario foi R$ : {round(faturamento,2)}'),                    
+                    print(f'O ticket medio do dia de hoje foi : {round(faturamento/numero_de_vendas,2)}'),
 
 print('''
 _______________
