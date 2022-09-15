@@ -1,8 +1,8 @@
 # Projeto-_Organicos
-<h1>DESAFIO EM GRUPO</h1><br>
+<h2>DESAFIO EM GRUPO</h2><br>
 <h2>MAGALU DEV</h2><br>
 
-REQUISITOS:<br>
+<h2>REQUISITOS:</h2><br>
 
 Tela de Boas-vindas<br>
 Menu de navegação<br>
@@ -21,8 +21,8 @@ Menu de Relatórios<br>
 Extrato de produtos vendidos<br>
 
 
-<h4>Pessoas que participam do Projeto.<br>
+Pessoas que participam do Projeto.<br>
 Anderson anderson.nascimento@luizalabs.com<br>
 Eron Cruz eron.cruz@luizalabs.com<br>
 Osiel Mesquita osiel.oliveira@luizalabs.com <br>
-João Garcia - joao.garcia@luizalabs.com</h4><br>
+João Garcia - joao.garcia@luizalabs.com<br>
