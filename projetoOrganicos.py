@@ -13,7 +13,7 @@ S = Encerrar o programa
 menucadastro = '''
     -----------------
 Menu de Cadastro
-P = Produtos a cadastrar
+C = Produtos a cadastrar
 L = Listar produtos cadastrados 
 D = Deleção de produtos
 V = Voltar para o menu anterior
@@ -78,12 +78,12 @@ while opcao.upper() != "S":
     if opcao.upper() == 'C': # Menu de cadastro
         opcaocadastro = 'C'
 
-        while opcaocadastro.upper() in "CLD":
+        while opcaocadastro.upper() in "CLDP":
             print(menucadastro)
 
             opcaocadastro = input("Digite o que deseja acessar: \n").upper()
-            if opcaocadastro == 'P':
-                while opcaocadastro == "P":   
+            if opcaocadastro == 'C':
+                while opcaocadastro == "C":   
                     nome = input("Qual o nome do novo produto: \n").lower()
                     while len(nome) <= 2:
                         print("Nome não pode conter menos de 2 caracteres'.")
@@ -97,9 +97,9 @@ while opcao.upper() != "S":
 
                     opcaocadastro = input("Deseja cadastrar novo produto? \nS - Sim *** N - Menu anterior *** Q - Menu principal \n").upper()
                     if opcaocadastro == 'S':
-                        opcaocadastro = 'P'
-                    if opcaocadastro == 'N':
                         opcaocadastro = 'C'
+                    if opcaocadastro == 'N':
+                        opcaocadastro = 'P'
                     if opcaocadastro == 'V':
                         opcao = 'Q'
                     
