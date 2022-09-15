@@ -2,43 +2,46 @@
 # Aqui estão as variáveis do programa
 from turtle import clear
 menunavegacao = '''
------------------------
-Menu de navegação
-C = cadastro
-V = vendas 
+------------------------
+    Menu de navegação
+
+C = Cadastro
+V = Vendas 
 R = Relatórios
 S = Encerrar o programa
------------------------'''
+------------------------'''
 
 menucadastro = '''
-    -----------------
-Menu de Cadastro
+-------------------------------
+       Menu de Cadastro
+
 C = Produtos a cadastrar
 L = Listar produtos cadastrados 
 D = Deleção de produtos
 V = Voltar para o menu anterior
 S = Sair do programa
-    -----------------'''
+-------------------------------'''
 
 menu_vendas = '''
----------------------------
-       Menu de Vendas
----------------------------
+-------------------------------
+        Menu de Vendas
             
- A = Adicionar um item ao seu carrinho de compras:
- R = Remover um item do seu carrinho de compras:
- F = Fechar o carrinho e finalizar a compra:
- C = Ver os items dentro do carrinho:
- V = Voltar para o menu inicial: 
+A = Adicionar item ao carrinho
+R = Remover item do carrinho
+F = Fechar e finalizar a compra
+C = Ver os items do carrinho
+V = Voltar para o menu inicial
+-------------------------------
 '''
 
 menu_relatorio = '''
------------------
-Menu de Relatorio
+------------------------------
+      Menu de Relatorio
+
 E = Exibir Relatorio
-V = Voltar para o menu anterior
+V = Voltar para o menu inicial
 S = Sair do programa
------------------'''
+------------------------------'''
 faturamento = 0
 numero_de_vendas = 0
 carrinho = {}
@@ -61,7 +64,7 @@ print('''
           |     O |           
           '-------' ''')
 print(''' ''')
-print('=' * 30),print(' ' * 30),print ('''Desnvolvedores:             
+print('=' * 30),print(' ' * 30),print ('''Desenvolvedores:             
                                                      
             Anderson Teixeira  
             Eron Morais        
@@ -200,10 +203,10 @@ while opcao.upper() != "S":
     if opcao.upper() == 'R': # Menu de Relatorio
         opcaorelatorio = 'R'
 
-        while opcaorelatorio.upper() in "CVR":
+        while opcaorelatorio.upper() in "CR":
             print(menu_relatorio)
 
-            opcaorelatorio = input("Digite o que deseja acessar: ").upper()
+            opcaorelatorio = input("Digite o que deseja acessar: \n").upper()
             if opcaorelatorio == 'E':
                     for items in vendidos:
                         print(' ' * 1),
