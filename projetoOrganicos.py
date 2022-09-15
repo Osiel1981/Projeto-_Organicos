@@ -95,7 +95,7 @@ while opcao.upper() != "S":
                     valor = float(input("Qual o preço atualizado? \nR$: \n"))
                     while valor <= 0:
                         print("Valor deve ser maior que R$ 0")
-                        valor = input("Favor inserir valor válido: \nR$")
+                        valor = float(input("Favor inserir valor válido: \nR$"))
                     produtos[nome]=valor
 
                     opcaocadastro = input("Deseja cadastrar novo produto? \nS - Sim *** N - Menu anterior *** Q - Menu principal \n").upper()
