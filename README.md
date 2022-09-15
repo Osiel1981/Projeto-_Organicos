@@ -1,28 +1,28 @@
 # Projeto-_Organicos
-DESAFIO EM GRUPO
-MAGALU DEV
+DESAFIO EM GRUPO<br>
+MAGALU DEV<br>
 
-REQUISITOS:
+REQUISITOS:<br>
 
-Tela de Boas-vindas
-Menu de navegação
-Cadastro
-Vendas
-Relatório
-Sair
-Menu de Cadastro:
-Cadastramento de produtos
-Listar produtos cadastrados
-Deleção de produtos
-Menu de Vendas
-Adição de produtos ao carrinho
-Finalização da venda do carrinho (dizendo quanto o usuário tem que pagar)
-Menu de Relatórios
-Extrato de produtos vendidos
+Tela de Boas-vindas<br>
+Menu de navegação<br>
+Cadastro<br>
+Vendas<br>
+Relatório<br>
+Sair<br>
+Menu de Cadastro:<br>
+Cadastramento de produtos<br>
+Listar produtos cadastrados<br>
+Deleção de produtos<br>
+Menu de Vendas<br>
+Adição de produtos ao carrinho<br>
+Finalização da venda do carrinho (dizendo quanto o usuário tem que pagar)<br>
+Menu de Relatórios<br>
+Extrato de produtos vendidos<br>
 
 
-Pessoas que participam do Projeto.
-Anderson anderson.nascimento@luizalabs.com
-Eron Cruz eron.cruz@luizalabs.com
-Osiel Mesquita osiel.oliveira@luizalabs.com 
-João Garcia - joao.garcia@luizalabs.com
+Pessoas que participam do Projeto.<br>
+Anderson anderson.nascimento@luizalabs.com<br>
+Eron Cruz eron.cruz@luizalabs.com<br>
+Osiel Mesquita osiel.oliveira@luizalabs.com <br>
+João Garcia - joao.garcia@luizalabs.com<br>
