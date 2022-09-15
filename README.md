@@ -1,8 +1,8 @@
 # Projeto-_Organicos
 <h2>DESAFIO EM GRUPO</h2><br>
-<h2>MAGALU DEV</h2><br>
+<h3>MAGALU DEV</h3><br>
 
-<h2>REQUISITOS:</h2><br>
+<h3>REQUISITOS:</h3><br>
 
 Tela de Boas-vindas<br>
 Menu de navegação<br>
