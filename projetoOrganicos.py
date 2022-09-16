@@ -166,7 +166,7 @@ while opcao.upper() != "S":
                     maisCarrinho = input("Deseja adicionar mais produtos ao carrinho? Digite S para sim ou N para não: ")
             if opcaoVendas.upper() == "R":
                 menosCarrinho = "S"
-                while menosCarrinho == "S":
+                while menosCarrinho.upper() == "S":
                     produto = input("Digite o nome do produto que deseja remover: ")
                     if produto in carrinho.keys():
                         carrinho.pop(produto)
