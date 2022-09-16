@@ -78,7 +78,7 @@ opcao = "a"
 while opcao.upper() != "S":
     print(menunavegacao)
     opcao = input("Digite o que deseja acessar: \n").upper()
-    os.system("cls")
+    os.system('cls')
     if opcao.upper() == 'C': # Menu de cadastro
         opcaocadastro = 'C'
         while opcaocadastro.upper() in "CLDP":
@@ -105,6 +105,7 @@ while opcao.upper() != "S":
                         produtos[nome]=int(valor)
 
                     opcaocadastro = input("Deseja cadastrar novo produto? \nS - Sim *** N - Menu anterior *** Q - Menu principal \n").upper()
+                    os.system('cls')
                     if opcaocadastro == 'S':
                         opcaocadastro = 'C'
                     if opcaocadastro == 'N':
@@ -115,12 +116,12 @@ while opcao.upper() != "S":
             if opcaocadastro == 'L':
                 for items in produtos:
                     print(f'{items:<20s} {str(produtos[items]):>} ')
-                opcaocadastro = input("pressione enter para voltar ao menu anterior:\n")
-                os.system("cls")
+                    
             if opcaocadastro == 'D':
                 menosproduto = 'S'
+                os.system('cls')
                 while menosproduto == 'S':
-                    produto = input("Digite o produto que deseja excluir!\n").lower()
+                    produto = input("Digite o produto que deseja excluir:\n").lower()
                     if produto in produtos.keys():
                         produtos.pop(produto)
                     else:
@@ -129,12 +130,11 @@ while opcao.upper() != "S":
                                 Produto indisponível no estoque
                             --------------------------------------
                             ''')
-                    menosproduto = input("Deseja remover mais produtos do carrinho? Digite S para Sim ou N para Não \n").upper()
-                    os.system("cls")
+                    menosproduto = input("Deseja remover mais produtos? \nDigite S para Sim ou N para Não \n").upper()
+                    os.system('cls')
             if opcaocadastro == 'V':
-                opcao = 'Q'
-                os.system("cls")
-                      
+                        opcao = 'Q'
+                        os.system('cls')
             if opcaocadastro == 'S':
                 opcao = 'S'
                 os.system("cls")
@@ -170,9 +170,10 @@ while opcao.upper() != "S":
                         ''')
 
                     maisCarrinho = input("Deseja adicionar mais produtos ao carrinho? Digite S para sim ou N para não: ")
+                    os.system('cls')
             if opcaoVendas.upper() == "R":
                 menosCarrinho = "S"
-                while menosCarrinho == "S":
+                while menosCarrinho.upper() == "S":
                     produto = input("Digite o nome do produto que deseja remover: ")
                     if produto in carrinho.keys():
                         carrinho.pop(produto)
@@ -184,13 +185,14 @@ while opcao.upper() != "S":
                         -------------------------------------
                         ''')
                     menosCarrinho = input("Deseja remover mais produtos do carrinho? Digite S para sim ou N para não ")
+                    os.system('cls')
             if opcaoVendas.upper() == "F":
                 for nomes in carrinho:
                     valores = carrinho[nomes]
                     somaCarrinho = somaCarrinho + valores
                 print(f'''
                 ++++++++++++++++++++++++++++++++++++++
-                          Intens no Carrinho
+                          Itens no Carrinho
                              {carrinho}
                 ++++++++++++++++++++++++++++++++++++++
                 Valor total a pagar = R${somaCarrinho}
