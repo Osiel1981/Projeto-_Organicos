@@ -173,7 +173,7 @@ while opcao.upper() != "S":
                     os.system('cls')
             if opcaoVendas.upper() == "R":
                 menosCarrinho = "S"
-                while menosCarrinho == "S":
+                while menosCarrinho.upper() == "S":
                     produto = input("Digite o nome do produto que deseja remover: ")
                     if produto in carrinho.keys():
                         carrinho.pop(produto)
