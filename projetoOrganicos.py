@@ -78,9 +78,9 @@ opcao = "a"
 while opcao.upper() != "S":
     print(menunavegacao)
     opcao = input("Digite o que deseja acessar: \n").upper()
+    os.system("cls")
     if opcao.upper() == 'C': # Menu de cadastro
         opcaocadastro = 'C'
-
         while opcaocadastro.upper() in "CLDP":
             print(menucadastro)
             opcaocadastro = input("Digite o que deseja acessar: \n").upper()
@@ -91,10 +91,10 @@ while opcao.upper() != "S":
                         print("Nome não pode conter menos de 2 caracteres'.")
                         nome = input("Favor inserir um nome válido:\n").lower()
                     
-                    valor = float(input("Qual o preço atualizado? \nR$: \n"))
-                    while valor <= 0:
+                    valor = input("Qual o preço atualizado? \nR$: \n")
+                    while not valor.isnumeric() or float(valor)  < 1:
                         print("Valor deve ser maior que R$ 0")
-                        valor = float(input("Favor inserir valor válido: \nR$"))
+                        valor = input("Favor inserir valor válido: \nR$")
                     if nome in produtos:
                         input(f'''
                     Produto {nome} já cadastrado.
@@ -102,7 +102,7 @@ while opcao.upper() != "S":
                         produtos[nome]=valor
 
                     else:
-                        produtos[nome]=valor
+                        produtos[nome]=int(valor)
 
                     opcaocadastro = input("Deseja cadastrar novo produto? \nS - Sim *** N - Menu anterior *** Q - Menu principal \n").upper()
                     if opcaocadastro == 'S':
@@ -111,10 +111,12 @@ while opcao.upper() != "S":
                         opcaocadastro = 'P'
                     if opcaocadastro == 'V':
                         opcao = 'Q'
-                    
+            os.system("cls")        
             if opcaocadastro == 'L':
                 for items in produtos:
                     print(f'{items:<20s} {str(produtos[items]):>} ')
+                opcaocadastro = input("pressione enter para voltar ao menu anterior:\n")
+                os.system("cls")
             if opcaocadastro == 'D':
                 menosproduto = 'S'
                 while menosproduto == 'S':
@@ -128,10 +130,14 @@ while opcao.upper() != "S":
                             --------------------------------------
                             ''')
                     menosproduto = input("Deseja remover mais produtos do carrinho? Digite S para Sim ou N para Não \n").upper()
+                    os.system("cls")
             if opcaocadastro == 'V':
-                        opcao = 'Q'
+                opcao = 'Q'
+                os.system("cls")
+                      
             if opcaocadastro == 'S':
                 opcao = 'S'
+                os.system("cls")
         
 
     if opcao.upper() == "V": # Menu de vendas 
