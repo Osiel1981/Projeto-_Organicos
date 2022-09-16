@@ -1,36 +1,38 @@
 
 # Aqui estão as variáveis do programa
 from turtle import clear
+import os
+
 menunavegacao = '''
 ------------------------
     Menu de navegação
 
-C = Cadastro
-V = Vendas 
-R = Relatórios
-S = Encerrar o programa
+[C] Cadastro
+[V] Vendas 
+[R] Relatórios
+[S] Encerrar o programa
 ------------------------'''
 
 menucadastro = '''
 -------------------------------
        Menu de Cadastro
 
-C = Produtos a cadastrar
-L = Listar produtos cadastrados 
-D = Deleção de produtos
-V = Voltar para o menu principal
-S = Sair do programa
+[C] Produtos a cadastrar
+[L] Listar produtos cadastrados 
+[D] Deleção de produtos
+[V] Voltar para o menu principal
+[S] Sair do programa
 -------------------------------'''
 
 menu_vendas = '''
 -------------------------------
         Menu de Vendas
             
-A = Adicionar item ao carrinho
-R = Remover item do carrinho
-F = Fechar e finalizar a compra
-C = Ver os items do carrinho
-V = Voltar para o menu inicial
+[A] Adicionar item ao carrinho
+[R] Remover item do carrinho
+[F] Fechar e finalizar a compra
+[C] Ver os items do carrinho
+[V] Voltar para o menu inicial
 -------------------------------
 '''
 
@@ -38,9 +40,9 @@ menu_relatorio = '''
 ------------------------------
       Menu de Relatorio
 
-E = Exibir Relatorio
-V = Voltar para o menu inicial
-S = Sair do programa
+[E] Exibir Relatorio
+[V] Voltar para o menu inicial
+[S] Sair do programa
 ------------------------------'''
 faturamento = 0
 numero_de_vendas = 0
@@ -75,15 +77,12 @@ print(' ' * 30)
 opcao = "a"
 while opcao.upper() != "S":
     print(menunavegacao)
-
     opcao = input("Digite o que deseja acessar: \n").upper()
-    
     if opcao.upper() == 'C': # Menu de cadastro
         opcaocadastro = 'C'
 
         while opcaocadastro.upper() in "CLDP":
             print(menucadastro)
-
             opcaocadastro = input("Digite o que deseja acessar: \n").upper()
             if opcaocadastro == 'C':
                 while opcaocadastro == "C":   
@@ -96,7 +95,14 @@ while opcao.upper() != "S":
                     while valor <= 0:
                         print("Valor deve ser maior que R$ 0")
                         valor = float(input("Favor inserir valor válido: \nR$"))
-                    produtos[nome]=valor
+                    if nome in produtos:
+                        input(f'''
+                    Produto {nome} já cadastrado.
+                    O valor será atualizado para R$:{valor}.''')
+                        produtos[nome]=valor
+
+                    else:
+                        produtos[nome]=valor
 
                     opcaocadastro = input("Deseja cadastrar novo produto? \nS - Sim *** N - Menu anterior *** Q - Menu principal \n").upper()
                     if opcaocadastro == 'S':
@@ -122,16 +128,15 @@ while opcao.upper() != "S":
                             --------------------------------------
                             ''')
                     menosproduto = input("Deseja remover mais produtos do carrinho? Digite S para Sim ou N para Não \n").upper()
-
             if opcaocadastro == 'V':
                         opcao = 'Q'
             if opcaocadastro == 'S':
                 opcao = 'S'
+        
 
     if opcao.upper() == "V": # Menu de vendas 
         opcaoVendas = "A"
         while opcaoVendas.upper() in "ARFC":
-
             print(menu_vendas)
             opcaoVendas = input("Digite o que deseja acessar: \n")
 
@@ -159,7 +164,6 @@ while opcao.upper() != "S":
                         ''')
 
                     maisCarrinho = input("Deseja adicionar mais produtos ao carrinho? Digite S para sim ou N para não: ")
-
             if opcaoVendas.upper() == "R":
                 menosCarrinho = "S"
                 while menosCarrinho == "S":
@@ -174,7 +178,6 @@ while opcao.upper() != "S":
                         -------------------------------------
                         ''')
                     menosCarrinho = input("Deseja remover mais produtos do carrinho? Digite S para sim ou N para não ")
-
             if opcaoVendas.upper() == "F":
                 for nomes in carrinho:
                     valores = carrinho[nomes]
@@ -193,13 +196,13 @@ while opcao.upper() != "S":
                 numero_de_vendas = numero_de_vendas + 1
 
             if opcaoVendas.upper() == "C":
-                
                 print(f'''
                 +++++++++++++++++++++
                      Seu Carrinho
                 +++++++++++++++++++++
                 {carrinho}
                 +++++++++++++++++++++''')
+
     if opcao.upper() == 'R': # Menu de Relatorio
         opcaorelatorio = 'R'
 
@@ -208,6 +211,7 @@ while opcao.upper() != "S":
 
             opcaorelatorio = input("Digite o que deseja acessar: \n").upper()
             if opcaorelatorio == 'E':
+                if numero_de_vendas > 0:
                     for items in vendidos:
                         print(' ' * 1),
                         print(f'Itens Vendidos'),
@@ -217,6 +221,8 @@ while opcao.upper() != "S":
                     print(f'Hoje foram feitas {numero_de_vendas} vendas'),
                     print(f'O faturamento Diario foi R$ : {round(faturamento,2)}'),                    
                     print(f'O ticket medio do dia de hoje foi : {round(faturamento/numero_de_vendas,2)}'),
+                else:
+                    print("Não há vendas registradas")
 
 print('''
 _______________
