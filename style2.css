@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    background-color: rgb(186, 248, 207);
   }
   
   a {text-decoration: none;}
@@ -19,7 +20,7 @@ body {
   }
   
   nav {
-    background: #0ca0d6;
+    background: #27ac51;
     font-size: 0;
     position: relative;
       
@@ -58,6 +59,7 @@ body {
   
   .mega-menu .container {
       display: flex;
+       
   }
   .mega-menu .item {
     flex-grow: 1;
@@ -68,11 +70,11 @@ body {
   }
   .mega-menu a {
     border-bottom: 1px solid #ddd;
-      color: #4ea3d8;
+      color: #097f23;
       display: block;
       padding: 10px 0;
   }
-  .mega-menu a:hover {color: #2d6a91;}
+  .mega-menu a:hover {color: #096923;}
   
   
   .dropdown {position: static;}
@@ -80,4 +82,9 @@ body {
   .dropdown:hover .mega-menu {
       visibility: visible;
       opacity: 1;
+  }
+  .minhaimg {
+    float:left;
+    height:60px;
+    background:url(./static/img/banner.jfif) repeat-x top center;
   }
