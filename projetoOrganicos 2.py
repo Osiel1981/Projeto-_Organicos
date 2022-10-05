@@ -14,12 +14,27 @@ app = Flask(__name__)
 #menu principal
 @app.route('/')
 def index():
-    return redirect(url_for('static', filename='index.html'))
+    return redirect(url_for('static', filename='index2.html'))
 
 #menu cadastro
 @app.route('/cadastro')
 def cadastro():
     return redirect(url_for('static', filename='cadastro.html'))
+
+#cadastrar novos produtos
+@app.route('/cadastrarProdutos')
+def cadastrarProdutos():
+    df = pd.read_csv('C:/Users/jop_garcia/Documents/Projeto-_Organicos-1/bancos de dados/bancoDeProdutos.csv', index_col=['produto'])
+
+    argumentos = request.args.to_dict()
+    produto = argumentos['produto']
+    preco = argumentos['preco']
+    quantidade = argumentos['quantidade']
+
+    df.loc[produto]= [preco,quantidade]
+    df.to_csv('C:/Users/jop_garcia/Documents/Projeto-_Organicos-1/bancos de dados/bancoDeProdutos.csv')
+    return redirect(url_for('static', filename= 'formulario.html'))
+
 
 #menu vendas
 @app.route('/vendas')
