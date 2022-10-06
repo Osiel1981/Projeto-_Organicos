@@ -1,13 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Projeto Organicos</title>
+  <title>Projeto Organicos</title>
+  <link rel="stylesheet" href="style2.css">
+  
+  <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .containers{
+            display: flex;
+            flex-direction: initial;
+        }
+        .box{
+            width: 100%;
+            height: 300px;
+            background-color: #127147;
+            border: 1px black solid;
+        }
+        .boxf{
+          width: fit-content;
+          height: 30px;
+          background-color: #127147;
+          border: 1px black solid;
+          margin: 0;
+      }
+    </style>
 </head>
-<body>
-    
+<body><div class="container"><img src="banner4sl.jpg" alt="fazendinha_banner"></div>
+    <nav>
+      <ul class="container">
+        <li><a href='#'>Projeto Organicos</a></li>
+        <li class='dropdown'>
+          <a href='#'>Cadastro <i class="fa fa-angle-down"></i></a>
+          <div class='mega-menu'>
+            <div class="container">
+              <div class="item">
+                <h3>Menu de Cadastro</h3>
+                <ul>
+                  <li><a href='formulario.html'>Cadastrar Produtos</a></li>
+                  <li><a href='#'>Listar Produtos Cadastrados</a></li>
+                  <li><a href='#'>Excluir Produtos </a></li>
+                </ul>
+  
+        <li class='dropdown'>
+          <a href='#'>Vendas <i class="fa fa-angle-down"></i> </a>
+          <div class='mega-menu'>
+            <div class="container">
+              <div class="item">
+                <h3>Menu de Vendas</h3>
+                <ul>
+                  <li><a href='#'>Adicionar Item</a></li>
+                  <li><a href='#'>Remover de Item</a></li>
+                  <li><a href='#'>Finalizar a Compra</a></li>
+                  <li><a href='#'>Visualizar Itens</a></li>
+                </ul>
+  
+        <li class='dropdown'>
+          <a href='#'>Relatório <i class="fa fa-angle-down"></i> </a>
+          <div class='mega-menu'>
+            <div class="container">
+              <div class="item">
+                <ul>
+                  <li><a href='#'>Exibir Relatório</a></li>
+                </ul>
+      </ul><!-- .container -->
+    </nav>
+    <div class="containers">
+        <div class="box"></div>
+        <div class="box"></div>
+        
+    </div>
+    <div class="containers">
+      <div class="boxf" >
+        <img src="footer4sl.jpg" alt="">
+      </div>
+      
+  </div>
 </body>
 </html>
