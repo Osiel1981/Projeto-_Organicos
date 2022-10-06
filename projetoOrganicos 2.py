@@ -7,9 +7,22 @@ from flask import render_template
 from flask import url_for, redirect
 from flask import request
 import pandas as pd
-import numpy as np
+
 
 app = Flask(__name__)
+
+produtos_lista = []
+precos = []
+quantidades = []
+produtos = {} 
+
+'''df = pd.DataFrame(data={
+        'produto': [],
+        'preco': [],
+        'quantidade': []
+    }).set_index('produto')'''
+
+df = pd.read_csv('estoque.csv', index_col='produto')
 
 #menu principal
 @app.route('/')
@@ -24,16 +37,22 @@ def cadastro():
 #cadastrar novos produtos
 @app.route('/cadastrarProdutos')
 def cadastrarProdutos():
-    df = pd.read_csv('C:/Users/jop_garcia/Documents/Projeto-_Organicos-1/bancos de dados/bancoDeProdutos.csv', index_col=['produto'])
-
+    
     argumentos = request.args.to_dict()
     produto = argumentos['produto']
     preco = argumentos['preco']
     quantidade = argumentos['quantidade']
 
+    produtos_lista.append(produto)
+    precos.append(preco)
+    quantidades.append(quantidade)
+
+    produtos[produto] = [preco, quantidade]
+    print(df)
+
     df.loc[produto]= [preco,quantidade]
-    df.to_csv('C:/Users/jop_garcia/Documents/Projeto-_Organicos-1/bancos de dados/bancoDeProdutos.csv')
-    return redirect(url_for('static', filename= 'formulario.html'))
+    df.to_csv('estoque.csv')
+    return redirect('static/formulario.html')
 
 
 #menu vendas
