@@ -7,10 +7,7 @@ body {
   
   a {text-decoration: none;}
   
-  .container {
-    margin: auto;
-    width: 1000px;
-  }
+  
   
   ul {
     padding-left: 0;
@@ -23,6 +20,7 @@ body {
     background: #27ac51;
     font-size: 0;
     position: relative;
+    top: -6px;
       
   }
   
@@ -39,7 +37,8 @@ body {
       padding: 20px 0;
       border-bottom: 3px solid transparent;
       transition: all .3s ease;
-  }
+      
+    }
   nav > ul > li:hover > a {
     color: #444; 
       border-bottom: 3px solid #444;
@@ -54,11 +53,13 @@ body {
       left: 0;
       width: 100%;
       padding-bottom: 20px;
-  }
+      
+    }
   .mega-menu h3 {color: #444;}
   
   .mega-menu .container {
       display: flex;
+      
        
   }
   .mega-menu .item {
@@ -67,12 +68,14 @@ body {
   }
   .mega-menu .item img {
       width: 100%;
+      
   }
   .mega-menu a {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 0px solid #ddd;
       color: #097f23;
       display: block;
       padding: 10px 0;
+      
   }
   .mega-menu a:hover {color: #096923;}
   
@@ -83,8 +86,4 @@ body {
       visibility: visible;
       opacity: 1;
   }
-  .minhaimg {
-    float:left;
-    height:60px;
-    background:url(./static/img/banner.jfif) repeat-x top center;
-  }
+ 
