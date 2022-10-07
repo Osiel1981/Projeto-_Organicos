@@ -16,13 +16,19 @@ precos = []
 quantidades = []
 produtos = {} 
 
-'''df = pd.DataFrame(data={
+'''estoque = pd.DataFrame(data={
         'produto': [],
         'preco': [],
         'quantidade': []
     }).set_index('produto')'''
 
-df = pd.read_csv('estoque.csv', index_col='produto')
+carrinho = pd.DataFrame(data={
+        'produto': [],
+        'preco': [],
+        'quantidade': []
+    }).set_index('produto')
+
+estoque = pd.read_csv('estoque.csv', index_col='produto')
 
 #menu principal
 @app.route('/')
@@ -48,12 +54,27 @@ def cadastrarProdutos():
     quantidades.append(quantidade)
 
     produtos[produto] = [preco, quantidade]
-    print(df)
+    print(estoque)
 
-    df.loc[produto]= [preco,quantidade]
-    df.to_csv('estoque.csv')
+    estoque.loc[produto]= [preco,quantidade]
+    estoque.to_csv('estoque.csv')
     return redirect('static/formulario.html')
 
+#função para mostrar no dataframe de estoque, sera usado para mostrar todos os itens do estoque 
+@app.route('/listaEstoque')
+def ListaEstoque():
+    return estoque
+
+#adicionar itens ao carrinho, carrinho nao precisa ser salvo em csv pois sera deletado depois de finalizar a compra 
+@app.route('/adicionarCarrinho')
+def adicionarCarrinho():
+    argumentos = request.args.to_dict()
+    produto = argumentos['produto']
+    quantidade = argumentos['quantidade']
+    preco = estoque.loc[produto,'preco']
+    carrinho.loc[produto] = [preco,quantidade]
+    print(carrinho)
+    return redirect('static/Carrinho.html')
 
 #menu vendas
 @app.route('/vendas')
