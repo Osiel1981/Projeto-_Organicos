@@ -1,1 +1,53 @@
-relatorio
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatorio</title>
+    <style>
+        
+        #campo1 {
+            margin-left: 14px ;
+            width: 350px;
+            height: 100px;
+            border-radius: 5px;
+        }
+        fieldset{
+            background-color:rgba(127, 246, 149, 0.479);
+            border-radius: 10px;
+            max-width: 08cm;
+        }
+        #campo1{
+            border-radius: 5px;
+            max-width: fit-content ;
+            max-height: fit-content;
+        }
+        #enviar{
+            margin: 15px;
+            border-radius: 5px;
+            background-color: rgb(109, 219, 183);
+        }
+        #voltar{
+            border-radius: 5px;
+            background-color: rgb(109, 219, 183);
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/relatorio" method="get">
+        <fieldset>
+            <legend>Relatorio</legend>
+            <input type="text" name="produto" id = "campo1" >
+
+            <br>
+            <input type="submit" value="Enviar" id="enviar">
+            <input type="submit" value="Voltar" id="voltar">
+            
+            
+        </fieldset>
+    </form>
+    
+</body>
+</html>
