@@ -53,7 +53,7 @@ def cadastrarProdutos():
     precos.append(preco)
     quantidades.append(quantidade)
 
-    produtos[produto] = [preco, quantidade]
+    produtos[produto] = [float(preco), int(quantidade)]
     print(estoque)
 
     estoque.loc[produto]= [preco,quantidade]
@@ -72,12 +72,36 @@ def adicionarCarrinho():
     produto = argumentos['produto']
     quantidade = argumentos['quantidade']
     preco = estoque.loc[produto,'preco']
-    carrinho.loc[produto] = [preco,quantidade]
+    carrinho.loc[produto] = [float(preco),int(quantidade)]
     print(carrinho)
+    estoque.loc[produto] = [preco,int(estoque.loc[produto,'quantidade'])-int(quantidade)]
+    print(estoque)
     return redirect('static/Carrinho.html')
 
-#menu vendas
-@app.route('/vendas')
+#menu fechar carrinho, precisa dar o valor total da venda, mostrar o carrinho, subitrair a quantidade do estoque e zerar o carrinho
+@app.route('/fecharVenda')
+def fecharVenda():
+    global carrinho
+    for item in carrinho.index:
+        estoque.loc[item, 'quantidade'] = int(estoque.loc[item,'quantidade'])-int(carrinho.loc[item,'quantidade'])
+    
+    carrinho['total'] = carrinho['quantidade']*carrinho['preco']
+    
+    print(carrinho)
+    print('__________________________')
+    print(carrinho['total'])# item vendidos 
+    print(carrinho['total'].sum())# valor total da venda
+    print('________________________')
+    print(estoque)
+
+    carrinho = pd.DataFrame(data={
+            'produto': [],
+            'preco': [],
+            'quantidade': []
+        }).set_index('produto')
+    print(carrinho)
+    return redirect('/static/index2.html')
+
 def vendas():
     return redirect(url_for('static', filename='vendas.html'))
 
