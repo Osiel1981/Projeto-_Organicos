@@ -59,6 +59,7 @@ def cadastrarProdutos():
     estoque.loc[produto]= [preco,quantidade]
     estoque.to_csv('estoque.csv')
     return redirect('static/formulario.html')
+    
 
 #função para mostrar no dataframe de estoque, sera usado para mostrar todos os itens do estoque 
 @app.route('/listaEstoque')
@@ -102,8 +103,17 @@ def fecharVenda():
     print(carrinho)
     return redirect('/static/index2.html')
 
-def vendas():
-    return redirect(url_for('static', filename='vendas.html'))
+@app.route('/removerCarrinho')
+def removerCarrinho():
+    global carrinho
+
+    argumentos = request.args.to_dict()
+    produto = argumentos['produto']
+
+    carrinho.drop(index=produto, inplace=True)
+    print(carrinho)
+
+    return redirect('/static/remover.html')
 
 #exibição de relatorio
 @app.route('/relatorio')
