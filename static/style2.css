@@ -45,7 +45,7 @@ body {
   }
   
   .mega-menu {
-    background: rgb(188,203,193);
+    background: rgb(198, 210, 202);
       visibility: hidden;
       opacity: 0;
       transition: visibility 0s, opacity 0.5s linear;
