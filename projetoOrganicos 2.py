@@ -35,11 +35,6 @@ estoque = pd.read_csv('estoque.csv', index_col='produto')
 def index():
     return redirect(url_for('static', filename='index2.html'))
 
-#menu cadastro
-@app.route('/cadastro')
-def cadastro():
-    return redirect(url_for('static', filename='cadastro.html'))
-
 #cadastrar novos produtos
 @app.route('/cadastrarProdutos')
 def cadastrarProdutos():
@@ -54,11 +49,25 @@ def cadastrarProdutos():
     quantidades.append(quantidade)
 
     produtos[produto] = [float(preco), int(quantidade)]
-    print(estoque)
 
     estoque.loc[produto]= [preco,quantidade]
     estoque.to_csv('estoque.csv')
+    print(estoque)
+
     return redirect('static/formulario.html')
+
+@app.route('/excluirProduto')
+def excluirProduto():
+    estoque = pd.read_csv('estoque.csv', index_col='produto')
+
+    argumentos = request.args.to_dict()
+    produto = argumentos['produto']
+
+    estoque.drop(index=produto, inplace=True)
+    print(estoque)
+    estoque.to_csv('estoque.csv')
+
+    return redirect('/static/removerEstoque.html')
     
 
 #função para mostrar no dataframe de estoque, sera usado para mostrar todos os itens do estoque 
