@@ -1,0 +1,24 @@
+body {
+    background-image: url(../img/and.png);
+    background-repeat: no-repeat;
+    background-size:103vmax;
+    background-position: center center;
+}
+
+.credit {
+    background: rgba(0, 0, 0, 0.75);
+    font-size: 1.3em;
+    color: whitesmoke;
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+.credit a {
+    color: #097f23;
+    transition: 1s;
+}
+
+.credit a:hover {
+    color: white;
+    text-shadow: 0 0 8px white;
+}
