@@ -7,7 +7,9 @@ body{
     width: 100%;
     height: 100vh;
     font-family: sans-serif;
-    background: linear-gradient(-200deg, #51ff8e, #097f23, #023514);
+    background-image: url(./img/and.png);
+    background-repeat: no-repeat;
+    background-size: 103vmax 
 }
 
 h2{
