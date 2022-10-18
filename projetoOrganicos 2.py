@@ -71,9 +71,11 @@ def excluirProduto():
     
 
 #função para mostrar no dataframe de estoque, sera usado para mostrar todos os itens do estoque 
-@app.route('/listaEstoque')
-def ListaEstoque():
-    return estoque
+@app.route('/lista')
+def listar():
+    df = pd.read_csv('estoque.csv')
+    df_html = df.to_html()
+    return render_template('lista.html', table = df_html)
 
 #adicionar itens ao carrinho, carrinho nao precisa ser salvo em csv pois sera deletado depois de finalizar a compra 
 @app.route('/adicionarCarrinho')
@@ -128,5 +130,9 @@ def removerCarrinho():
 @app.route('/relatorio')
 def relatorio():
     return redirect(url_for('static', filename='relatorio.html'))
-
+'''
+@app.route('/listaProdutos')
+def lista():
+    return redirect('/static/lista.html')
+'''
 app.run()
