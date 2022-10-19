@@ -33,7 +33,7 @@ estoque = pd.read_csv('estoque.csv', index_col='produto')
 #menu principal
 @app.route('/')
 def index():
-    return redirect(url_for('static', filename='index2.html'))
+    return redirect(url_for('static', filename='Landing_page.html'))
 
 #cadastrar novos produtos
 @app.route('/cadastrarProdutos')
@@ -54,7 +54,7 @@ def cadastrarProdutos():
     estoque.to_csv('estoque.csv')
     print(estoque)
 
-    return redirect('static\formulario.html')
+    return redirect('static\cadastro.html')
 
 @app.route('/excluirProduto')
 def excluirProduto():
@@ -67,7 +67,7 @@ def excluirProduto():
     print(estoque)
     estoque.to_csv('estoque.csv')
 
-    return redirect('/static/removerEstoque.html')
+    return redirect('/static/removerEstoque2.html')
     
 
 #função para mostrar no dataframe de estoque, sera usado para mostrar todos os itens do estoque 
@@ -124,7 +124,7 @@ def removerCarrinho():
     carrinho.drop(index=produto, inplace=True)
     print(carrinho)
 
-    return redirect('/static/remover.html')
+    return redirect('/static/removerCarrinho.html')
 
 #exibição de relatorio
 @app.route('/relatorio')
