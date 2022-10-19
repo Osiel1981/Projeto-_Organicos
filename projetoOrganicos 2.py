@@ -130,9 +130,11 @@ def removerCarrinho():
 @app.route('/relatorio')
 def relatorio():
     return redirect(url_for('static', filename='relatorio.html'))
-'''
-@app.route('/listaProdutos')
-def lista():
-    return redirect('/static/lista.html')
-'''
+
+@app.route('/listar/carrinho')
+def listarCarrinho():
+    df = carrinho
+    df_html = df.to_html()
+    return render_template('carrinho.html', table = df_html)
+
 app.run(debug=True)
