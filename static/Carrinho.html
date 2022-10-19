@@ -1,47 +1,42 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
-    <style>
-        #campo2, #campo3{
-            margin-left: 14px ;
-            width: 50px;
-            border-radius: 5px;
-        }
-        fieldset{
-            background-color:rgba(127, 246, 149, 0.479);
-            border-radius: 10px;
-            max-width: 08cm;
-        }
-        #campo1{
-            border-radius: 5px;
-        }
-        #enviar{
-            border-radius: 5px;
-            background-color: rgb(109, 219, 183);
-        }
-    </style>
+    <link rel="stylesheet" href="Layout.css">
+    <title>Carrinho</title>
 </head>
+
 <body>
-    <form action="/adicionarCarrinho" method="get">
-        <fieldset>
-            <legend>Adicionar ao Carrinho</legend>
-            <label for="campo1">Produto:</label>
-            <input type="text" name="produto" id = "campo1" required>
-            <br>
-            <br>
-            <label for="campo2">Quantidade:</label>
-            <input type="number" name="quantidade" id="campo2" required>
-            <br>
-            <br>
-            <input type="submit" value="Enviar" id="enviar">
-            <a href="index2.html">Voltar</a>
+    <div id="form">
+        <form action="/cadastrarProdutos" method="get">
+            <img src="./logo1.png" alt="" height="70" >
+            <h2 class="title"> Adicionar ao Carrinho</h2>
+
+            <label for="campo1"> Produto: </label>
+            <div class="input">
+                <input type="text" name="campo1" id="campo1" required>
+            </div>
             
-        </fieldset>
-    </form>
-    
+            <label for="campo3"> Quantidade: </label>
+            <div class="input">
+                <input type="number" name="campo3" id="campo3" required>
+            </div>
+
+            <br>
+            <div id="btn">
+                <button type="submit">Enviar</button>
+            </div>
+            <br>
+            <div id="btn">       
+                <button type="submit">Voltar</button>
+            </div>  
+
+        </form>
+    </div>
+
 </body>
+
 </html>
