@@ -54,7 +54,7 @@ def cadastrarProdutos():
     estoque.to_csv('estoque.csv')
     print(estoque)
 
-    return redirect('static/formulario.html')
+    return redirect('static\formulario.html')
 
 @app.route('/excluirProduto')
 def excluirProduto():
@@ -135,4 +135,4 @@ def relatorio():
 def lista():
     return redirect('/static/lista.html')
 '''
-app.run()
+app.run(debug=True)
