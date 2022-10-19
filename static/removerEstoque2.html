@@ -6,25 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Layout.css">
-    <title>SGPO -Carrinho</title>
+    <title>SGPO -Formulario</title>
 </head>
 
 <body>
+   
     <div id="form">
-        <form action="/adicionarCarrinho" method="get">
+        <form action="/excluirProduto" method="get">
             <img src="./logo1.png" alt="" height="70" >
-            <h2 class="title"> Adicionar ao Carrinho</h2>
+            <h2 class="title"> Remover do Estoque</h2>
 
             <label for="campo1"> Produto: </label>
             <div class="input">
                 <input type="text" name="produto" id="campo1" required>
             </div>
             
-            <label for="campo3"> Quantidade: </label>
-            <div class="input">
-                <input type="number" name="quantidade" id="campo3" required>
-            </div>
-
             <br>
             <div id="btn">
                 <button type="submit">Enviar</button>
@@ -32,7 +28,7 @@
             <br>
             <div id="btn">       
                 <button type="submit">Voltar</button>
-            </div>  
+            </div>
 
         </form>
     </div>

@@ -1,6 +1,6 @@
 produto,preco,quantidade
-maça,4,50
-pera,3,30
+maça,4,42
+pera,3,22
 banana,4,60
 melancia,8,30
 queijo,25,60
@@ -9,3 +9,6 @@ manga,8,50
 leite,10,70
 ovos,10,60
 Abacaxi,6,30
+agua,2,43
+farofa,10,40
+goiba,6,50

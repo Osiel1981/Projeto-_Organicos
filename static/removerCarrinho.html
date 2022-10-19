@@ -12,20 +12,15 @@
 <body>
    
     <div id="form">
-        <form action="/cadastrarProdutos" method="get">
+        <form action="/removerCarrinho" method="get">
             <img src="./logo1.png" alt="" height="70" >
-            <h2 class="title"> Remover do Estoque</h2>
+            <h2 class="title"> Remover do Carrinho</h2>
 
             <label for="campo1"> Produto: </label>
             <div class="input">
-                <input type="text" name="campo1" id="campo1" required>
+                <input type="text" name="produto" id="campo1" required>
             </div>
             
-            <label for="campo3"> Quantidade: </label>
-            <div class="input">
-                <input type="number" name="campo3" id="campo3" required>
-            </div>
-
             <br>
             <div id="btn">
                 <button type="submit">Enviar</button>
