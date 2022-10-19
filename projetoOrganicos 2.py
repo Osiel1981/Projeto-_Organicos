@@ -104,15 +104,15 @@ def fecharVenda():
     print(carrinho['total'])# item vendidos 
     print(carrinho['total'].sum())# valor total da venda
     print('________________________')
-    print(estoque)
-
+    df_html = carrinho.to_html()
     carrinho = pd.DataFrame(data={
             'produto': [],
             'preco': [],
             'quantidade': []
         }).set_index('produto')
     print(carrinho)
-    return redirect('/static/index2.html')
+    
+    return render_template('fecharvenda.html', table = df_html)
 
 @app.route('/removerCarrinho')
 def removerCarrinho():
