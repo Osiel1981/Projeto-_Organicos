@@ -13,6 +13,12 @@ body {
     border-radius: 0.5em;
 }
 
+table {
+    background-color:#fdfffe;
+    border-collapse:collapse;
+    border: 1px solid gray;
+
+}
 .credit a {
     color: #097f23;
     transition: 1s;
