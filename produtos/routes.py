@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from fastapi.encoders import jsonable_encoder as json
 
 from database import mongo
-from models import ProdutoIn, ProdutoOut
+from models import ProdutoIn, ProdutoOut, ProdutoUpdate
 
 
 router = APIRouter(tags=["Produtos"])
@@ -31,11 +31,22 @@ def listar_um_produto(doc_id: str):
     return mongo.coll.find_one({"_id": doc_id})
 
 
-@router.patch("/atualizar/", status_code=501)
-def atualizar_produto():
-    pass
+@router.patch("/atualizar/{doc_id}", status_code=200)
+def atualizar_produto(doc_id: str, produto: ProdutoUpdate):
+    produto = json(produto, exclude={"_id": True, "id": True}, exclude_unset=True)
+
+    if doc_before := mongo.coll.find_one_and_update({"_id": doc_id}, {"$set": produto}):
+        doc_after = mongo.coll.find_one({"_id": doc_id})
+        return {"antes": doc_before, "depois": doc_after}
+    
+    return HTTPException(404, f"Produto com o ID {doc_id} não existe")
 
 
-@router.delete("/deletar/", status_code=501)
-def deletar_produto():
-    pass
+@router.delete("/deletar/{doc_id}", status_code=200)
+def deletar_produto(doc_id: str):
+    deleted_doc = mongo.coll.find_one_and_delete({"_id": doc_id})
+
+    return {"documento deletado": deleted_doc}
+
+# TODO: handle errors properly
+# TODO: structure things so that the OpenAPI docs are created correctly

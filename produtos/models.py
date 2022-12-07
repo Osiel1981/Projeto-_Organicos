@@ -17,3 +17,18 @@ class ProdutoOut(ProdutoIn):
 
     class Config:
         allow_population_by_field_name = True
+
+class ProdutoUpdate(BaseModel):
+    nome: str | None = Field(example="Maçã")
+    preco: Decimal | None = Field(ge=0, decimal_places=2, example=Decimal("2.00"))
+    descricao: str | None = Field(example="Um kilo de maçãs.")
+
+    class Config:
+        anystr_strip_whitespace = True
+        extra = "allow"
+        fields = {"_id": {"exclude": True},
+                  "id": {"exclude": True}}
+
+# TODO: add json_encoders to model configs, so that
+#       1. FastAPI's jsonable_encoder doesn't mess with Decimal values
+#       2. ObjectID/UUID values can be correctly handled?
