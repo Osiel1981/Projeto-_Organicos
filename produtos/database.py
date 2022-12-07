@@ -1,28 +1,25 @@
-from decimal import Decimal
-from bson.decimal128 import Decimal128
-from bson.codec_options import CodecOptions, TypeCodec, TypeRegistry
+from dotenv import dotenv_values
+from fastapi import APIRouter
 from pymongo import MongoClient
 
+from type_codecs import codec_options
 
-class DecimalCodec(TypeCodec):
-    python_type = Decimal
-    bson_type = Decimal128
 
-    def transform_python(self, value: Decimal) -> Decimal128:
-        return Decimal128(value)
-
-    def transform_bson(self, value: Decimal128) -> Decimal:
-        return value.to_decimal()
-
-codec_options = CodecOptions(type_registry=TypeRegistry([DecimalCodec()]))
+config = dotenv_values("produtos/.env")
 
 class DatabaseConnection:
     def __init__(self,
-                 connection_string: str = "mongodb+srv://gama:gama@cluster0.rmcucbo.mongodb.net",
-                 database_name: str = "gama",
-                 collection_name: str = "produtos"):
+                 connection_string: str = config["CONNECTION_STRING"],
+                 database_name: str = config["DATABASE_NAME"],
+                 collection_name: str = config["COLLECTION_NAME"]):
         self.client = MongoClient(connection_string, serverSelectionTimeoutMS=5000)
         self.db = self.client.get_database(database_name)
         self.coll = self.db.get_collection(collection_name, codec_options=codec_options)
 
 mongo = DatabaseConnection()
+
+db_router = APIRouter()
+
+@db_router.on_event("shutdown")
+def close_connection():
+    mongo.client.close()
