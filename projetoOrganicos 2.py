@@ -86,7 +86,6 @@ def adicionarCarrinho():
     preco = estoque.loc[produto,'preco']
     carrinho.loc[produto] = [float(preco),int(quantidade)]
     print(carrinho)
-    estoque.loc[produto] = [preco,int(estoque.loc[produto,'quantidade'])-int(quantidade)]
     print(estoque)
     return redirect('static/Carrinho.html')
 
@@ -111,6 +110,8 @@ def fecharVenda():
             'quantidade': []
         }).set_index('produto')
     print(carrinho)
+
+    estoque.to_csv('estoque.csv')
     
     return render_template('fecharvenda.html', table = df_html)
 
