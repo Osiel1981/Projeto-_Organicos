@@ -10,16 +10,20 @@ import sqlite3 as sql
 conexao = sql.connect('inventory.db')
 cursor = conexao.cursor()
 
+
+drop_table = '''
+DROP TABLE if EXISTS estoque;
+'''
 #criar tabela
 create_table_estoque = '''
-CREATE TABLE IF NOT EXISTS estoque(
+CREATE TABLE estoque(
    produto    TEXT NOT NULL PRIMARY KEY
   ,preco     MONEY NOT NULL
   ,quantidade INT  NOT NULL
 );'''
 
 insert_valors_estoque = '''
-INSERT INTO mytable(produto,preco,quantidade) VALUES
+INSERT INTO estoque(produto,preco,quantidade) VALUES
  ('maça',4,42)
 ,('pera',3,22)
 ,('melancia',8,30)
@@ -35,11 +39,23 @@ INSERT INTO mytable(produto,preco,quantidade) VALUES
 ,('pitanga',5,45);
 '''
 
+select_produto = '''
+SELECT preco FROM estoque WHERE produto=? 
+'''
+select_quantidade = '''
+SELECT quantidade FROM estoque WHERE produto=?
+'''
 
+nova_quantiade = '''
+UPDATE estoque SET quantidade = :resultado WHERE produto= :item
+'''
+
+cursor.execute(drop_table)
 cursor.execute(create_table_estoque)
 cursor.execute(insert_valors_estoque)
 
 conexao.commit()
+conexao.close()
 
 app = Flask(__name__)
 
@@ -56,26 +72,40 @@ def index():
 
 @app.route('/adicionarCarrinho')
 def adicionarCarrinho():
+    conexao = sql.connect('inventory.db')
+    cursor = conexao.cursor()
+
     argumentos = request.args.to_dict()
-    produto = argumentos['produto']
+    prod = argumentos['produto']
     quantidade = argumentos['quantidade']
-    preco = estoque.loc[produto,'preco'] # consultar preço do produto escolido e adicinar esse valor a variavel preço 
-    carrinho.loc[produto] = [float(preco),int(quantidade)]
+    cursor.execute(select_produto, [prod])
+    price = cursor.fetchone()[0]
+    print(price)
+    carrinho.loc[prod] = [float(price),int(quantidade)]
     print(carrinho)
+    conexao.close()
     return redirect('static/Carrinho.html')
 
 @app.route('/fecharVenda')
 def fecharVenda():
+    conexao = sql.connect('inventory.db')
+    cursor = conexao.cursor()
+
     global carrinho
     for item in carrinho.index:
-        estoque.loc[item, 'quantidade'] = int(estoque.loc[item,'quantidade'])-int(carrinho.loc[item,'quantidade']) # criar um query que subitraia a quantidade no banco de dados igual a variavel quantidade
-    
+        cursor.execute(select_quantidade, [item])
+        quantidade_estoque = cursor.fetchone()[0]
+        print(quantidade_estoque)
+        resultado = quantidade_estoque-int(carrinho.loc[item,'quantidade']) 
+        print(int(carrinho.loc[item,'quantidade']))
+        print(resultado)
+        cursor.execute(nova_quantiade, {'resultado':resultado,'item':item})
     carrinho['total'] = carrinho['quantidade']*carrinho['preco']
     
     print(carrinho)
     print('__________________________')
-    print(carrinho['total'])# item vendidos 
-    print(carrinho['total'].sum())# valor total da venda
+    print(carrinho['total'])
+    print(carrinho['total'].sum())
     print('________________________')
     df_html = carrinho.to_html()
     carrinho = pd.DataFrame(data={
@@ -84,8 +114,8 @@ def fecharVenda():
             'quantidade': []
         }).set_index('produto')
     print(carrinho),
-
-   
+    conexao.commit()
+    conexao.close()
     return render_template('fecharvenda.html', table = df_html)
 
 

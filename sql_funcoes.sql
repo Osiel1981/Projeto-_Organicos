@@ -17,3 +17,5 @@ INSERT INTO mytable(produto,preco,quantidade) VALUES
 ,('farofa',10,40)
 ,('goiba',6,50)
 ,('pitanga',5,45);
+
+
